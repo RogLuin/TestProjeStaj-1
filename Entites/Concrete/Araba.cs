@@ -12,6 +12,7 @@ namespace Entites.Concrete
         public int Id { get; set; }
         public string  CekiciPlaka { get; set; }
         public string DorsePlaka { get; set; }
-        
+        public string Marka { get; set; }
+
     }
 }
