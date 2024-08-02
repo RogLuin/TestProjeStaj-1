@@ -28,6 +28,8 @@ builder.Services.AddScoped<IFirmaDal , EfFirmaDal>();
 builder.Services.AddScoped<IFirmaService, FirmaManager>();
 
 
+builder.Services.AddCors(options => options.AddDefaultPolicy(p=>p.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
+
 
 var app = builder.Build();
 
@@ -37,7 +39,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
