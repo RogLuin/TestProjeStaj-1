@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entites.Concrete;
+using Hangfire;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -57,6 +58,19 @@ namespace WebApi.Controllers
         public IActionResult GetAllByArabaId(int arabaId)
         {
             return Ok(_surucuService.GetAllByArabaId(arabaId));
+        }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            BackgroundJob.Enqueue(() => BackgrounTestServices.Test());
+            return Ok("HangFire Çalıştı");
+        }
+        public class BackgrounTestServices
+        {
+            public static void Test()
+            {
+                Console.WriteLine("HangFİre Çalışıyor " + DateTime.Now);
+            }
         }
 
     }

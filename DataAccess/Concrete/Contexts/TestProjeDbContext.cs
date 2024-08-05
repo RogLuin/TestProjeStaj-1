@@ -17,6 +17,7 @@ namespace DataAccess.Concrete.Contexts
         public DbSet<Surucu> Suruculer { get; set; }
         public DbSet<Firma> Firmalar { get; set; }
         public DbSet<ArabaSurucu> ArabaSuruculer { get; set; }
+        public DbSet<Musteri> Musteriler { get; set; }
 
         public TestProjeDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
